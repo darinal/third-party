@@ -20,7 +20,7 @@ router.post('/updateMode', (req, res) => {
     res.json({"mode": MODE});
 });
 
-router.put('/doAddressCheck', (req, res) => {
+router.get('/doAddressCheck', (req, res) => {
     if (MODE === 1) {
         wait();
         res.json({ "action": "timeout" });
