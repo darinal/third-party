@@ -13,7 +13,7 @@ router.get('/getMode', (req, res) => {
 
 router.post('/updateMode', (req, res) => {
     const number = +req.body.toString();
-    if(number === 0 || number === 1){
+    if(number === 0 || number === 1 || number === 2){
         MODE = number;
     }
     console.log(MODE);
@@ -24,10 +24,11 @@ router.get('/doAddressCheck', (req, res) => {
     if (MODE === 1) {
         wait();
         res.json({ "action": "timeout" });
-    }
-    else {        
+    } else if (MODE == 2){        
+        res.json({"action": "invalid xml"})
+    } else {
         res.json({"action": error})
-    }    
+    }
 });
 
 
